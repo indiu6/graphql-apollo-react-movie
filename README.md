@@ -6,8 +6,8 @@ built with React, Apollo Client, GraphQL
 
 Go -> Apollo Server and GraphQL API: https://github.com/indiu6/graphql-apollo-movie-api
 
-then -> 'yarn start' in there to start server,
-then -> 'yarn start' in this project
+then 'yarn start' in there to start server,
+then 'yarn start' in this project
 
 ## Initail install on Jan 08 2021
 
