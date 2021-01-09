@@ -2,7 +2,7 @@
 
 built with React, Apollo Client, GraphQL
 
-## Before yarn start..
+## Before You Start..
 
 Go -> Apollo Server and GraphQL API: https://github.com/indiu6/graphql-apollo-movie-api
 
