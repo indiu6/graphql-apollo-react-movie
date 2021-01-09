@@ -9,7 +9,7 @@ Go -> Apollo Server and GraphQL API: https://github.com/indiu6/graphql-apollo-mo
 then 'yarn start' in there to start server,
 then 'yarn start' in this project
 
-## Initail install on Jan 08 2021
+## Initial install on Jan 08 2021
 
 yarn add styled-components
 react-router-dom
