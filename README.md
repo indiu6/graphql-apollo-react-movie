@@ -5,6 +5,7 @@ built with React, Apollo Client, GraphQL
 ## Before yarn start..
 
 Go -> Apollo Server and GraphQL API: https://github.com/indiu6/graphql-apollo-movie-api
+
 then -> 'yarn start' in there to start server,
 then -> 'yarn start' in this project
 
