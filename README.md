@@ -18,13 +18,13 @@ graphql
 
 ## Deprecated
 
-### After Apollo Client updated to v3, 'apollo-boost' and '@apollo/react-hooks' seem to be merged into '@apollo/client'.
+#### After Apollo Client updated to v3, 'apollo-boost' and '@apollo/react-hooks' seem to be merged into '@apollo/client'.
 
-### So you should import 'ApolloClient' and 'ApolloProvider' from '@apollo/client' if your Apollo Client is v3.
+#### So you should import 'ApolloClient' and 'ApolloProvider' from '@apollo/client' if your Apollo Client is v3.
 
 apollo-boost, @apollo/react-hooks => @apollo/client
 
-### Apollo Client 3 introduces two complementary mechanisms for managing local state: field policies and reactive variables.
+#### Apollo Client 3 introduces two complementary mechanisms for managing local state: field policies and reactive variables.
 
 The local resolver API from previous versions of Apollo Client is also available but is deprecated.
 
