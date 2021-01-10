@@ -1,6 +1,6 @@
 # Movie App
 
-built with React, Apollo Client, GraphQL
+built with React, Apollo Client, GraphQL, styled-components
 
 # Before You Start...
 

@@ -13,6 +13,10 @@ const GET_MOVIE = gql`
       rating
       description_intro
     }
+    suggestions(id: $id) {
+      id
+      medium_cover_image
+    }
   }
 `;
 
@@ -59,12 +63,11 @@ const Detail = () => {
   const { loading, data } = useQuery(GET_MOVIE, {
     variables: { id: +id },
   });
-  console.log(data);
 
   return (
     <Container>
       <Column>
-        <Title>{loading ? 'Loading...' : `${data.movie?.title}`}</Title>
+        <Title>{loading ? 'Loading...' : data.movie.title}</Title>
         <Subtitle>
           {data?.movie?.language} · {data?.movie?.rating}
         </Subtitle>
