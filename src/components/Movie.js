@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { gql, useMutation, makeVar, useReactiveVar } from '@apollo/client';
+import { gql, useMutation, makeVar } from '@apollo/client';
 
-const IS_LIKED_MOVIE = gql`
-  mutation isLikedMovie($id: Int!, $isLiked: Boolean!) {
-    isLikedMovie(id: $id, isLiked: $isLiked) @client
+const LIKE_MOVIE = gql`
+  mutation toggleMovie($id: Int!, $isLiked: Boolean!) {
+    toggleMovie(id: $id, isLiked: $isLiked) @client
   }
 `;
 
@@ -29,16 +29,20 @@ const Poster = styled.div`
 `;
 
 export const Movie = ({ id, bg, isLiked }) => {
-  const [toggleLikedMovie] = useMutation(IS_LIKED_MOVIE, {
+  const [toggleMovie] = useMutation(LIKE_MOVIE, {
     variables: { id: parseInt(id), isLiked },
   });
-  const liked = useReactiveVar(isLikedMovie);
   return (
     <Container>
       <Link to={`/${id}`}>
         <Poster bg={bg} />
       </Link>
-      <button onClick={toggleLikedMovie}>{isLiked ? 'Unlike' : 'Like'}</button>
+      <button
+        style={{ marginLeft: '100px', marginTop: '1px' }}
+        onClick={toggleMovie}
+      >
+        {isLiked ? 'Unlike' : 'Like'}
+      </button>
     </Container>
   );
 };

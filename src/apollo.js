@@ -2,17 +2,17 @@ import { ApolloClient, InMemoryCache } from '@apollo/client';
 import { isLikedMovie } from './components/Movie';
 
 const cache = new InMemoryCache({
-  typePolicies: {
-    Mutation: {
-      fields: {
-        isLikedMovie: {
-          read() {
-            return isLikedMovie();
-          },
-        },
-      },
-    },
-  },
+  // typePolicies: {
+  //   Mutation: {
+  //     fields: {
+  //       isLikedMovie: {
+  //         read() {
+  //           return isLikedMovie();
+  //         },
+  //       },
+  //     },
+  //   },
+  // },
 });
 
 const client = new ApolloClient({
@@ -22,24 +22,22 @@ const client = new ApolloClient({
     Movie: {
       isLiked: () => true,
     },
-    // Mutation: {
-    //   toggleLikeMovie: (_, { id, isLiked }) => {
-    //     console.log(isLiked);
-    //     const myMovie = {
-    //       __typeName: 'Movie',
-    //       id: `${id}`,
-    //       isLiked: `${isLiked}`,
-    //     };
-    //     cache.modify({
-    //       id: cache.identify(myMovie),
-    //       fields: {
-    //         isLiked(isLiked) {
-    //           return !isLiked;
-    //         },
-    //       },
-    //     });
-    //   },
-    // },
+    Mutation: {
+      toggleMovie: (_, { id, isLiked }, { cache }) => {
+        console.log(isLiked);
+        cache.modify({
+          id: cache.identify({
+            __typeName: 'Movie',
+            id: `${id}`,
+            isLiked: `${isLiked}`,
+          }),
+          fields: {
+            isLiked: (isLiked) => !isLiked,
+          },
+        });
+        return null;
+      },
+    },
   },
 });
 
