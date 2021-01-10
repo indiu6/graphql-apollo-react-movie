@@ -58,7 +58,7 @@ const Movies = styled.div`
 
 const Home = () => {
   const { loading, data } = useQuery(GET_MOVIES);
-  console.log(loading, data);
+  // console.log(loading, data);
   return (
     <Container>
       <Header>
@@ -66,9 +66,16 @@ const Home = () => {
         <Subtitle>I love GraphQL</Subtitle>
       </Header>
       {loading && <Loading>Loading...</Loading>}
-      {!loading &&
-        data.movies &&
-        data.movies.map((m) => <Movie key={m.id} id={m.id} />)}
+      <Movies>
+        {data?.movies?.map((m) => (
+          <Movie
+            key={m.id}
+            id={m.id}
+            isLiked={m.isLiked}
+            bg={m.medium_cover_image}
+          />
+        ))}
+      </Movies>
     </Container>
   );
 };
