@@ -1,7 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { gql, useQuery } from '@apollo/client';
+import { gql, useMutation, makeVar, useReactiveVar } from '@apollo/client';
+
+const IS_LIKED_MOVIE = gql`
+  mutation isLikedMovie($id: Int!, $isLiked: Boolean!) {
+    isLikedMovie(id: $id, isLiked: $isLiked) @client
+  }
+`;
+
+export const isLikedMovie = makeVar([]);
 
 const Container = styled.div`
   height: 400px;
@@ -20,13 +28,17 @@ const Poster = styled.div`
   border-radius: 7px;
 `;
 
-const Movie = ({ id, bg }) => {
+export const Movie = ({ id, bg, isLiked }) => {
+  const [toggleLikedMovie] = useMutation(IS_LIKED_MOVIE, {
+    variables: { id: parseInt(id), isLiked },
+  });
+  const liked = useReactiveVar(isLikedMovie);
   return (
     <Container>
       <Link to={`/${id}`}>
         <Poster bg={bg} />
       </Link>
+      <button onClick={toggleLikedMovie}>{isLiked ? 'Unlike' : 'Like'}</button>
     </Container>
   );
 };
-export default Movie;
