@@ -1,4 +1,4 @@
-# Movie App
+# Awesome Movie App
 
 built with React, Apollo Client, GraphQL, styled-components
 
