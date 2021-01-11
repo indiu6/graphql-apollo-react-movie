@@ -22,11 +22,13 @@ graphql
 
 #### So you should import 'ApolloClient' and 'ApolloProvider' from '@apollo/client' if your Apollo Client is v3.
 
-apollo-boost, @apollo/react-hooks => @apollo/client
+apollo-boost, @apollo/react-hooks => @apollo/client https://www.apollographql.com/docs/react/
 
 #### Apollo Client 3 introduces two complementary mechanisms for managing local state: field policies and reactive variables.
 
 The local resolver API from previous versions of Apollo Client is also available but is deprecated.
+
+https://www.apollographql.com/docs/react/local-state/managing-state-with-field-policies/
 
 ## Tips on dev
 

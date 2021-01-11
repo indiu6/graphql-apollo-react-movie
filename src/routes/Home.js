@@ -62,8 +62,8 @@ const Home = () => {
   return (
     <Container>
       <Header>
-        <Title>Apollo 2021</Title>
-        <Subtitle>I love GraphQL</Subtitle>
+        <Title>Awesome Movies by GraphQL Server</Title>
+        <Subtitle>Using Apollo React Client3</Subtitle>
       </Header>
       {loading && <Loading>Loading...</Loading>}
       <Movies>
